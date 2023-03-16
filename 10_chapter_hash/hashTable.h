@@ -2,22 +2,9 @@
 #define DATA_STRUCTURES_HASHTABLE_H__
 
 #include "../util.h"
+#include "./hash.h"
 
 #include <iostream>
-
-class myHash
-{
-public:
-    size_t operator() (const std::string key) const 
-    {
-        unsigned long hashValue = 0;
-        int length = (int)key.length();
-        for (int i = 0; i < length; i++) {
-            hashValue = 5 * hashValue + key.at(i);
-        }
-        return size_t(hashValue);
-    }
-};
 
 template <class K, class E>
 class hashTable {
@@ -36,7 +23,7 @@ public:
 
 private:
     std::pair<const K, E> ** table;     // 散列表
-    myHash hash;                  // 把類型K映射到一個非整數
+    hash<K> hash;                  // 把類型K映射到一個非整數
     int dSize;                          // 字典中書對個數
     int divisor;                        // 散列函數除數
 };

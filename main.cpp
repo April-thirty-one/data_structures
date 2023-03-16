@@ -1,5 +1,6 @@
-#include "./10_chapter_hash/hashTable.h"
-
+#include "./11_chapter_tree/linkedBinaryTree.h"
+#include "./util.h"
+#include "11_chapter_tree/binaryTreeNode.h"
 
 #include <algorithm>
 #include <iostream>
@@ -9,7 +10,9 @@
 int main (int argc, char *argv[])
 {
     try {
-        hashTable<int, int> hash(10);
+        linkedBinayTree<int> tree;
+        binaryTreeNode<int> * node = new binaryTreeNode<int>(10);
+        tree.insert(node);
     } 
     catch (cc::illegalParameterValue error) {
         error.outputMessage();
